@@ -28,21 +28,10 @@ namespace DecisionTreeRootFinder
                 }
                 for (int i = 0; i < result.Count; i++)
                 {
-
-                    Console.WriteLine(result[i]);
                     string extract = result[i].ToString();
                     atributeArray = extract.Split(',');
-                    Console.WriteLine(atributeArray[0]);
                     atribute.Add(atributeArray[0]);
-                    Console.WriteLine();
                 }
-
-                foreach (var item in atribute)
-                {
-                    Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine(item);
-                }
-                Console.ReadLine();
 
                 return atribute;
             }
