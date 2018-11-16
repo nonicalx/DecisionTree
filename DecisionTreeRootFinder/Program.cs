@@ -12,7 +12,7 @@ namespace DecisionTreeRootFinder
             CSVReader(filePath);
 
         }
-            public static string[] CSVReader(string path)
+            public static List<string> CSVReader(string path)
             {
                 List<string> result = new List<string>();
                 string[] atributeArray = new string[result.Count];
@@ -37,14 +37,14 @@ namespace DecisionTreeRootFinder
                     Console.WriteLine();
                 }
 
-                foreach (var item in atributeArray)
+                foreach (var item in atribute)
                 {
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine(item);
                 }
                 Console.ReadLine();
 
-                return;
+                return atribute;
             }
     }
 }
