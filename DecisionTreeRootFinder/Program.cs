@@ -44,7 +44,23 @@ namespace DecisionTreeRootFinder
                 uniqueElements.Add(item);
                 Console.WriteLine(item);
             }
-
+            for (int i = 1; i < uniqueElements.Count; i++)
+            {
+                int occurance = 0;
+                string keyword = uniqueElements[i];
+                string atributeToString = "";
+                for (int x = 0; x < atribute.Count; x++)
+                {
+                    atributeToString += atribute[x].ToString()+" ";
+                }
+                int index = atributeToString.IndexOf(keyword);
+                while (index != -1)
+                {
+                    occurance += 1;
+                    index = atributeToString.IndexOf(keyword, index + 1);
+                }
+                Console.WriteLine($"{keyword} occurs {occurance}");
+            }
            double entropy = 0;
             
            return entropy;
