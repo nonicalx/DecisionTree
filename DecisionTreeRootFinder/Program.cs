@@ -46,7 +46,23 @@ namespace DecisionTreeRootFinder
             
         public static  double AttributeEntropyCalculator(List<string> atribute)
         {
+           double subsetEntropy = 0;
+            
+           return subsetEntropy;
+        }
+
+        public static double DataSetEntropy()
+        {
+            var outputList = GetAtribute(4);
+            double dataSetEntroy = 0;
+            GetOccurance(outputList);
+            return dataSetEntroy;
+        }
+
+        public static void GetOccurance(List<string> atribute)
+        {
             var uniqueElements = new List<string>();
+            var numberOfOccurances = new List<int>();
             var eachAtribute = new HashSet<string>(atribute);
 
             foreach (var item in eachAtribute)
@@ -62,7 +78,7 @@ namespace DecisionTreeRootFinder
                 string atributeToString = "";
                 for (int x = 0; x < atribute.Count; x++)
                 {
-                    atributeToString += atribute[x].ToString()+" ";
+                    atributeToString += atribute[x].ToString() + " ";
                 }
                 int index = atributeToString.IndexOf(keyword);
                 while (index != -1)
@@ -71,43 +87,8 @@ namespace DecisionTreeRootFinder
                     index = atributeToString.IndexOf(keyword, index + 1);
                 }
                 Console.WriteLine($"{keyword} occurs {occurance} times");
+                numberOfOccurances.Add(occurance);
             }
-
-           double subsetEntropy = 0;
-            
-           return subsetEntropy;
-        }
-
-        public static double DataSetEntropy()
-        {
-            var outputList = GetAtribute(4);
-            double dataSetEntroy = 0;
-             var uniqueOutputs = new List<string>();
-            var eachAtribute = new HashSet<string>(outputList);
-            foreach (var item in eachAtribute)
-            {
-                uniqueOutputs.Add(item);
-                Console.WriteLine(item);
-            }
-
-            for (int i = 1; i < uniqueOutputs.Count; i++)
-            {
-                int occurance = 0;
-                string keyword = uniqueOutputs[i];
-                string atributeToString = "";
-                for (int x = 0; x < outputList.Count; x++)
-                {
-                    atributeToString += outputList[x].ToString() + " ";
-                }
-                int index = atributeToString.IndexOf(keyword);
-                while (index != -1)
-                {
-                    occurance += 1;
-                    index = atributeToString.IndexOf(keyword, index + 1);
-                }
-                Console.WriteLine($"{keyword} occurs {occurance} times");
-            }
-            return dataSetEntroy;
         }
     }
 }
