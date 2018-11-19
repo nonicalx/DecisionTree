@@ -82,12 +82,30 @@ namespace DecisionTreeRootFinder
         {
             var outputList = GetAtribute(4);
             double dataSetEntroy = 0;
-             var uniqueElements = new List<string>();
+             var uniqueOutputs = new List<string>();
             var eachAtribute = new HashSet<string>(outputList);
             foreach (var item in eachAtribute)
             {
-                uniqueElements.Add(item);
+                uniqueOutputs.Add(item);
                 Console.WriteLine(item);
+            }
+
+            for (int i = 1; i < uniqueOutputs.Count; i++)
+            {
+                int occurance = 0;
+                string keyword = uniqueOutputs[i];
+                string atributeToString = "";
+                for (int x = 0; x < outputList.Count; x++)
+                {
+                    atributeToString += outputList[x].ToString() + " ";
+                }
+                int index = atributeToString.IndexOf(keyword);
+                while (index != -1)
+                {
+                    occurance += 1;
+                    index = atributeToString.IndexOf(keyword, index + 1);
+                }
+                Console.WriteLine($"{keyword} occurs {occurance} times");
             }
             return dataSetEntroy;
         }
