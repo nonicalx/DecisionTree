@@ -59,7 +59,7 @@ namespace DecisionTreeRootFinder
             return dataSetEntroy;
         }
 
-        public static void GetOccurance(List<string> atribute)
+        public static List<int> GetOccurance(List<string> atribute)
         {
             var uniqueElements = new List<string>();
             var numberOfOccurances = new List<int>();
@@ -89,6 +89,7 @@ namespace DecisionTreeRootFinder
                 Console.WriteLine($"{keyword} occurs {occurance} times");
                 numberOfOccurances.Add(occurance);
             }
+            return numberOfOccurances;
         }
     }
 }
